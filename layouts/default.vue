@@ -11,8 +11,17 @@
                     icon="i-heroicons-magnifying-glass"
                     placeholder="Buscar por anime, manga, personaje..."
                     variant="none"
-                    class="w-full bg-[#161b22] rounded-full"
-                    :ui="{ icon: { trailing: { pointer: '' } } }"
+                    class="w-full"
+                    :ui="{ 
+                        wrapper : 'relative w-full group',
+                        base    : 'bg-[#161b22] rounded-full border-none focus:ring-1 focus:ring-[#00e5ff]/50 py-2.5 ps-10 text-sm transition-all w-full',
+                        icon    : { 
+                            leading: {
+                                wrapper: 'flex items-center ps-3.5 pointer-events-none' 
+                            },
+                            base: 'text-gray-500 group-hover:text-[#00e5ff] transition-colors w-5 h-5' 
+                        }
+                    }"
                 />
             </div>
 
@@ -21,8 +30,9 @@
                     icon="i-heroicons-bell"
                     variant="ghost"
                     color="gray"
+                    class="hover:text-[#00e5ff] transition-colors"
                 />
-                <UAvatar src="https://avatar.iran.liara.run/public/30" size="sm" />
+                <UAvatar src="https://avatar.iran.liara.run/public/30" size="sm" class="border border-[#00e5ff]/20" />
             </div>
         </nav>
 
