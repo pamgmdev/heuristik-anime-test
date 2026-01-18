@@ -9,7 +9,7 @@
             <div class="hidden md:flex flex-1 max-w-md mx-8">
                 <UInput
                     icon="i-heroicons-magnifying-glass"
-                    placeholder="Search for anime, movies..."
+                    placeholder="Buscar por anime, manga, personaje..."
                     variant="none"
                     class="w-full bg-[#161b22] rounded-full"
                     :ui="{ icon: { trailing: { pointer: '' } } }"
