@@ -1,0 +1,11 @@
+/* styles/main.css */
+@import "tailwindcss";
+
+body{
+  @apply bg-white text-gray-900;
+}
+
+/* Modo oscuro de Nuxt UI */
+.dark body {
+  @apply bg-gray-950 text-gray-100;
+}
