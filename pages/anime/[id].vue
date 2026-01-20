@@ -1,34 +1,38 @@
 <script setup lang="ts">
+/**
+ * Obtención del ID del anime desde la ruta
+ */
+const route = useRoute();
+const id = route.params.id as string;
 
-    /*
-    * Obtención del ID del anime desde la ruta
-    */
-    const route = useRoute();
-    const id = route.params.id as string;
+/**
+ * Petición de los detalles principales del anime
+ */
+const { data: animeData, pending, error } = await useFetch(`/api/anime/${id}`);
 
-    /*
-    * Uso de tus composables personalizados
-    */
-    const { data: animeData, pending, error } = await useFetch(`/api/anime/${id}`);
+/**
+ * Petición de la lista de episodios (usamos useAsyncData para mayor control)
+ */
+const { data: episodesData, pending: episodesPending } = await useAsyncData(
+    `episodes-${id}`, 
+    () => $fetch(`/api/anime/${id}/episodes`)
+);
 
-    /*
-    * Obtención de la lista de episodios del anime
-    */
-    const { data: episodesData, pending: episodesPending } = await useAsyncData(
-        `episodes-${id}`, 
-        () => $fetch(`/api/anime/${id}/episodes`)
-    )
+/**
+ * Datos del anime procesados
+ */
+const anime = computed(() =>
+{
+    return animeData.value?.data
+});
 
-    /*
-    * Accede a los datos del anime
-    */
-    const anime = computed(() => animeData.value?.data);
-
-    /*
-    * Lista de episodios
-    */
-    const episodes = computed(() => episodesData.value?.data ?? []);
-
+/**
+ * Lista de episodios procesada
+ * Extraemos el array 'data' de la respuesta de la API
+ */
+const episodes = computed(() => {
+    return episodesData.value?.data;
+});
 </script>
 
 <template>
@@ -52,17 +56,19 @@
         </div>
 
         <div v-else-if="anime" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
             <div class="space-y-4">
                 <NuxtImg
                     :src="anime.images.jpg.large_image_url"
                     :alt="anime.title"
-                    class="rounded-xl shadow-lg w-full"
+                    class="rounded-xl shadow-lg w-full border dark:border-gray-800"
                 />
                 <UCard>
                     <div class="text-sm space-y-2">
                         <p><strong>Puntuación:</strong> ★ {{ anime.score || 'N/A' }}</p>
                         <p><strong>Episodios:</strong> {{ anime.episodes || 'En emisión' }}</p>
                         <p><strong>Tipo:</strong> {{ anime.type }}</p>
+                        <p><strong>Estado:</strong> {{ anime.status }}</p>
                     </div>
                 </UCard>
             </div>
@@ -70,7 +76,7 @@
             <div class="md:col-span-2 space-y-8">
                 <section>
                     <h1 class="text-4xl font-black mb-4">{{ anime.title }}</h1>
-                    <div class="flex gap-2 mb-4">
+                    <div class="flex flex-wrap gap-2 mb-4">
                         <UBadge v-for="g in anime.genres" :key="g.mal_id" variant="subtle">
                             {{ g.name }}
                         </UBadge>
@@ -80,20 +86,12 @@
                     </p>
                 </section>
 
-                <UDivider />
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-                        <UIcon name="i-heroicons-play-circle" />
-                        Episodios disponibles
-                    </h2>
-                    
-                    <div v-if="episodesPending">
-                        <USkeleton class="h-10 w-full mb-2" v-for="i in 5" :key="i" />
-                    </div>
-                    
-                    <EpisodeList v-else :episodes="episodes" />
+                <section v-if="episodes.length > 0">
+                    <AnimeEpisodeList :episodes="episodes" :key="id" />
                 </section>
+                <div v-else-if="!episodesPending">
+                    <p>No se encontraron episodios.</p>
+                </div>
             </div>
         </div>
     </UContainer>
