@@ -37,15 +37,17 @@ const episodes = computed(() => {
 
 <template>
     <UContainer class="py-8">
-        <UButton
-            to="/"
-            icon="i-heroicons-arrow-left"
-            variant="ghost"
-            color="gray"
-            class="mb-6"
-        >
-            Volver al catálogo
-        </UButton>
+        <div class="mb-12">
+            <UButton
+                to="/"
+                icon="i-heroicons-chevron-left"
+                variant="ghost"
+                color="gray"
+                class="mb-6"
+            >
+                Volver al catálogo
+            </UButton>
+        </div>
 
         <div v-if="pending">
             <BaseLoader label="Cargando detalles del anime..." />
