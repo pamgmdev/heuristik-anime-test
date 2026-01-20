@@ -7,20 +7,20 @@
     const id = route.params.id as string;
 
     /*
-    * Uso de tus composables personalizados (detectados en tu imagen)
+    * Uso de tus composables personalizados
     */
     const { data: animeData, pending, error } = await useFetch(`/api/anime/${id}`);
 
     /*
     * Obtención de la lista de episodios del anime
     */
-    const { data: episodesData, pending: epPending } = await useAsyncData(
+    const { data: episodesData, pending: episodesPending } = await useAsyncData(
         `episodes-${id}`, 
         () => $fetch(`/api/anime/${id}/episodes`)
     )
 
     /*
-    * Computed properties para facilitar el acceso a los datos
+    * Accede a los datos del anime
     */
     const anime = computed(() => animeData.value?.data);
 
@@ -88,7 +88,7 @@
                         Episodios disponibles
                     </h2>
                     
-                    <div v-if="epPending">
+                    <div v-if="episodesPending">
                         <USkeleton class="h-10 w-full mb-2" v-for="i in 5" :key="i" />
                     </div>
                     

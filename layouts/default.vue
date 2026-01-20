@@ -16,10 +16,10 @@
                         wrapper : 'relative w-full group',
                         base    : 'bg-[#161b22] rounded-full border-none focus:ring-1 focus:ring-[#00e5ff]/50 py-2.5 ps-10 text-sm transition-all w-full',
                         icon    : { 
-                            leading: {
-                                wrapper: 'flex items-center ps-3.5 pointer-events-none' 
+                            leading : {
+                                wrapper : 'flex items-center ps-3.5 pointer-events-none' 
                             },
-                            base: 'text-gray-500 group-hover:text-[#00e5ff] transition-colors w-5 h-5' 
+                            base    : 'text-gray-500 group-hover:text-[#00e5ff] transition-colors w-5 h-5' 
                         }
                     }"
                 />
