@@ -9,17 +9,17 @@ interface Episode {
 }
 
 const props = defineProps<{
-  episodes: Episode[]
+    episodes: Episode[]
 }>();
 
 // Función para formatear fecha
 const formatDate = (dateStr: string) => {
-  if (!dateStr) return 'Sin fecha';
-  return new Date(dateStr).toLocaleDateString('es-ES', { 
-    day: '2-digit', 
-    month: 'short', 
-    year: 'numeric' 
-  });
+    if (!dateStr) return 'Sin fecha';
+    return new Date(dateStr).toLocaleDateString('es-ES', { 
+        day: '2-digit', 
+        month: 'short', 
+        year: 'numeric' 
+    });
 };
 </script>
 
