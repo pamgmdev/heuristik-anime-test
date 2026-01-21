@@ -2,7 +2,8 @@ import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import AnimeCard from '~/components/anime/AnimeCard.vue'
 
-describe('AnimeCard', () => {
+describe('AnimeCard', () =>
+{
     it('... Debe renderizar el título del anime correctamente', () =>
     {
         // Simulamos un objeto Anime basado en tu interfaz
