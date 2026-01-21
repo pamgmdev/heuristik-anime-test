@@ -51,7 +51,7 @@
             />
             <UButton 
                 to="/discover" 
-                icon="i-heroicons-compass" 
+                icon="i-heroicons-globe-asia-australia"
                 variant="ghost" 
                 color="gray" 
                 vertical 
