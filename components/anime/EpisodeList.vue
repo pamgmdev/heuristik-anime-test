@@ -4,27 +4,31 @@
 * Definimos la interfaz para un episodio
 */
 interface Episode {
-    mal_id: number;
-    title: string;
-    aired: string;
-    score: number | null;
-    filler: boolean;
+    mal_id : number;
+    title  : string;
+    aired  : string;
+    score  : number | null;
+    filler : boolean;
 }
 
 /*
 * Definimos las props que recibe el componente
 */
 const props = defineProps<{
-    episodes: Episode[]
+    episodes : Episode[]
 }>();
 
 // Función para formatear fecha
-const formatDate = (dateStr: string) => {
-    if (!dateStr) return 'Sin fecha';
+const formatDate = (dateStr: string) => 
+{
+    if (!dateStr) 
+    {
+        return 'Sin fecha';
+    }
     return new Date(dateStr).toLocaleDateString('es-ES', { 
-        day: '2-digit', 
-        month: 'short', 
-        year: 'numeric' 
+        day   : '2-digit', 
+        month : 'short', 
+        year  : 'numeric' 
     });
 };
 </script>

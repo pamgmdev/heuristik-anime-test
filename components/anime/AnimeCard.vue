@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ anime: any }>()
+defineProps<{ anime : any }>();
 </script>
 
 <template>
