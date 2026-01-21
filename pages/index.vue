@@ -1,15 +1,15 @@
 <script setup lang="ts">
 
-    const {
-        animes,
-        pending,
-        error,
-        nextPage,
-        pagination,
-    } = useAnimeList();
+const {
+    animes,
+    pending,
+    error,
+    nextPage,
+    pagination,
+} = useAnimeList();
 
-    //  Imagen destacada
-    const animeCover = "https://i.pinimg.com/originals/46/22/3c/46223c9314273c84276f499a705b4eb4.gif" 
+//  Imagen destacada
+const animeCover = "https://i.pinimg.com/originals/46/22/3c/46223c9314273c84276f499a705b4eb4.gif"; 
 </script>
 
 <template>

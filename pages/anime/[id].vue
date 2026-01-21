@@ -23,14 +23,15 @@ const { data: episodesData, pending: episodesPending } = await useAsyncData(
  */
 const anime = computed(() =>
 {
-    return animeData.value?.data
+    return animeData.value?.data;
 });
 
 /**
  * Lista de episodios procesada
  * Extraemos el array 'data' de la respuesta de la API
  */
-const episodes = computed(() => {
+const episodes = computed(() => 
+{
     return episodesData.value?.data;
 });
 </script>

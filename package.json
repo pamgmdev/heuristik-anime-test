@@ -3,6 +3,8 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
@@ -14,7 +16,6 @@
     "test:nuxt": "vitest --project nuxt"
   },
   "dependencies": {
-    "@nuxt/eslint": "1.12.1",
     "@nuxt/image": "2.0.0",
     "@nuxt/test-utils": "3.23.0",
     "@nuxt/ui": "4.3.0",
@@ -26,10 +27,14 @@
   },
   "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48",
   "devDependencies": {
+    "@nuxt/eslint": "1.12.1",
+    "@stylistic/eslint-plugin": "^5.7.0",
     "@tailwindcss/vite": "^4.1.18",
+    "@typescript-eslint/parser": "^8.53.1",
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^20.3.1",
     "tailwindcss": "^4.1.18",
-    "vitest": "^4.0.17"
+    "vitest": "^4.0.17",
+    "vue-eslint-parser": "^10.2.0"
   }
 }

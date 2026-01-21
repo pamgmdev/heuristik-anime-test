@@ -15,11 +15,11 @@ export function useAnimeList()
     * useFetch para obtener la lista de animes desde la API interna
     */
     const { data, pending, error, refresh } = useFetch<JikanResponse<Anime[]>>('/api/animes',
-    {
-        query : { page: page },
-        key   : `anime-list-page-${page.value}`, // Clave única por página para caché SSR
-        watch : [page]
-    });
+        {
+            query : { page : page },
+            key   : `anime-list-page-${page.value}`, // Clave única por página para caché SSR
+            watch : [page]
+        });
 
     /*
     * Datos computados para la lista de animes y la paginación
@@ -37,7 +37,7 @@ export function useAnimeList()
      */
     function goToPage(newPage: number)
     {
-        router.push({ query: { ...route.query, page: newPage } });
+        router.push({ query : { ...route.query, page : newPage } });
     }
 
     /**
@@ -56,7 +56,8 @@ export function useAnimeList()
      */
     function prevPage()
     {
-        if (page.value > 1) {
+        if (page.value > 1) 
+        {
             goToPage(page.value - 1);
         }
     }
@@ -71,5 +72,5 @@ export function useAnimeList()
         prevPage,
         goToPage,
         refresh,
-    }
+    };
 }

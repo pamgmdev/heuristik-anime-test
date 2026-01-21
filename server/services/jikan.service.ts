@@ -1,6 +1,6 @@
 // server/services/jikan.service.ts
 
-const BASE_URL = 'https://api.jikan.moe/v4'
+const BASE_URL = 'https://api.jikan.moe/v4';
 
 /*
 * Interfaz genérica para respuestas de Jikan API
@@ -15,9 +15,9 @@ export interface JikanResponse<T>
         current_page      : number
         items?            :
         {
-            count     : number
-            total     : number
-            per_page  : number
+            count    : number
+            total    : number
+            per_page : number
         }
     };
 }
@@ -30,12 +30,12 @@ async function jikanFetch<T>(endpoint: string): Promise<JikanResponse<T>>
     try
     {
         return await $fetch<JikanResponse<T>>(`${BASE_URL}${endpoint}`,
-        {
-            retry      : 2,
-            retryDelay : 500,
-        });
+            {
+                retry      : 2,
+                retryDelay : 500,
+            });
     }
-    catch (error)
+    catch(error)
     {
         console.error('[JIKAN API ERROR]', error);
         throw new Error('Error al obtener datos desde Jikan API');
