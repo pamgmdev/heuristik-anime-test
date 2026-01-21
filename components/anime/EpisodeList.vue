@@ -1,5 +1,8 @@
 <script setup lang="ts">
 
+/*
+* Definimos la interfaz para un episodio
+*/
 interface Episode {
     mal_id: number;
     title: string;
@@ -8,6 +11,9 @@ interface Episode {
     filler: boolean;
 }
 
+/*
+* Definimos las props que recibe el componente
+*/
 const props = defineProps<{
     episodes: Episode[]
 }>();
