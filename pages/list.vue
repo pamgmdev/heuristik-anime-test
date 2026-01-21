@@ -1,0 +1,3 @@
+<template>
+    <AnimeUnderConstruction />
+</template>

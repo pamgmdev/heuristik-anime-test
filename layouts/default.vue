@@ -1,10 +1,10 @@
 <template>
     <div class="min-h-screen bg-[#0b0f15] text-white font-sans">
         <nav class="sticky top-0 z-50 bg-[#0b0f15]/80 backdrop-blur-md px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-2">
+            <NuxtLink to="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
                 <UIcon name="i-heroicons-play-circle-solid" class="text-[#00e5ff] w-8 h-8" />
                 <span class="text-xl font-black tracking-tighter italic">ANIME<span class="text-[#00e5ff]">Explorer</span></span>
-            </div>
+            </NuxtLink>
             
             <div class="hidden md:flex flex-1 max-w-md mx-8">
                 <UInput
