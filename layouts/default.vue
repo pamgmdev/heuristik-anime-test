@@ -40,10 +40,42 @@
         </main>
 
         <div class="md:hidden fixed bottom-0 left-0 right-0 bg-[#0b0f15] border-t border-gray-800 px-6 py-3 flex justify-between items-center z-50">
-            <UButton to="/" icon="i-heroicons-home-solid" variant="ghost" color="primary" vertical label="Home" truncate />
-            <UButton to="/discover" icon="i-heroicons-compass" variant="ghost" color="gray" vertical label="Discover" truncate />
-            <UButton to="/list" icon="i-heroicons-bookmark" variant="ghost" color="gray" vertical label="List" truncate />
-            <UButton to="/profile" icon="i-heroicons-user" variant="ghost" color="gray" vertical label="Profile" truncate />
+            <UButton 
+                to="/"
+                icon="i-heroicons-home-solid"
+                variant="ghost"
+                color="primary"
+                vertical
+                label="Inicio"
+                truncate
+            />
+            <UButton 
+                to="/discover" 
+                icon="i-heroicons-compass" 
+                variant="ghost" 
+                color="gray" 
+                vertical 
+                label="Descrubir" 
+                truncate
+            />
+            <UButton 
+                to="/list" 
+                icon="i-heroicons-bookmark" 
+                variant="ghost" 
+                color="gray" 
+                vertical 
+                label="Favoritos" 
+                truncate
+            />
+            <UButton 
+                to="/profile" 
+                icon="i-heroicons-user" 
+                variant="ghost" 
+                color="gray" 
+                vertical 
+                label="Perfil" 
+                truncate
+            />
         </div>
     </div>
 </template>
