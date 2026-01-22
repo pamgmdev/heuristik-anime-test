@@ -31,6 +31,16 @@ const formatDate = (dateStr: string) =>
         year  : 'numeric' 
     });
 };
+
+// Función para formatear score
+const formatScore = (score: number | null) => 
+{
+    if (score === null || score === undefined) 
+    {
+        return '';
+    }
+    return score.toLocaleString('es-ES', { minimumFractionDigits : 1, maximumFractionDigits : 1 });
+};
 </script>
 
 <template>
@@ -60,7 +70,7 @@ const formatDate = (dateStr: string) =>
                         
                         <div v-if="ep.score" class="flex items-center gap-1 text-xs font-bold text-orange-400 bg-orange-400/10 px-2 py-1 rounded-md border border-orange-400/20">
                             <UIcon name="i-heroicons-star-solid" class="w-3 h-3" />
-                            {{ ep.score }}
+                            {{ formatScore(ep.score) }}
                         </div>
                     </div>
 
