@@ -56,10 +56,7 @@ const formatScore = (score: number | null) =>
                     <span class="text-xl font-black text-gray-600 group-hover:text-primary-500 transition-colors select-none">
                         {{ ep.mal_id }}
                     </span>
-                    
-                    <div v-if="ep.filler" class="absolute top-0 right-0">
-                        <UBadge color="red" variant="solid" size="xs" class="rounded-none rounded-bl-lg">Filler</UBadge>
-                    </div>
+
                 </div>
 
                 <div class="flex-grow min-w-0">
