@@ -8,36 +8,37 @@ let mockRouter;
 let mockPagination;
 let mockData;
 
-beforeEach(() => {
-    mockRoute = { query: { page: '2' } };
-    mockRouter = { push: vi.fn() };
-    mockPagination = { has_next_page: true };
-    mockData = ref({ data: [{ mal_id: 1, title: 'Test' }], pagination: mockPagination });
+beforeEach(() => 
+{
+    mockRoute = { query : { page : '2' } };
+    mockRouter = { push : vi.fn() };
+    mockPagination = { has_next_page : true };
+    mockData = ref({ data : [{ mal_id : 1, title : 'Test' }], pagination : mockPagination });
 
     vi.mock('vue-router', () => ({
-        useRoute: () => mockRoute,
-        useRouter: () => mockRouter,
+        useRoute  : () => mockRoute,
+        useRouter : () => mockRouter,
     }));
     vi.mock('nuxt/app', () => ({
-        useFetch: () => ({
-            data: mockData,
-            pending: ref(false),
-            error: ref(null),
-            refresh: vi.fn(),
+        useFetch : () => ({
+            data    : mockData,
+            pending : ref(false),
+            error   : ref(null),
+            refresh : vi.fn(),
         }),
     }));
 });
 
 vi.mock('vue-router', () => ({
-    useRoute: () => mockRoute,
-    useRouter: () => mockRouter,
+    useRoute  : () => mockRoute,
+    useRouter : () => mockRouter,
 }));
 vi.mock('nuxt/app', () => ({
-    useFetch: () => ({
-        data: mockData,
-        pending: ref(false),
-        error: ref(null),
-        refresh: vi.fn(),
+    useFetch : () => ({
+        data    : mockData,
+        pending : ref(false),
+        error   : ref(null),
+        refresh : vi.fn(),
     }),
 }));
 
