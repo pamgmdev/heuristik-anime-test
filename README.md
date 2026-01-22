@@ -75,7 +75,7 @@ pnpm preview
 
 ## 🌐 Demo
 
-> Próximamente: ¡Enlace al proyecto desplegado!
+> https://heuristik-anime-explorer.vercel.app/
 
 ---
 
